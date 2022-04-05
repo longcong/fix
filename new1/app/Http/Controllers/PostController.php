@@ -9,6 +9,7 @@ use App\Post;
 use App\Tag;
 
 
+
 class PostController extends Controller
 {
     /**
@@ -175,7 +176,7 @@ class PostController extends Controller
     {
         //
         $post = Post::find($id);
-
+        $post-> tags()->detach();
         $post-> delete(); 
 
         $request->session()->flash('success', 'This post was successfully saved.');
